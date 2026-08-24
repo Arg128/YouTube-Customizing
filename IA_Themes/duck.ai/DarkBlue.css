@@ -1,0 +1,318 @@
+/* ==UserStyle==
+@name           YouTube Dark Blue - Videos
+@namespace      duck.ai
+@version        1.0.1
+@description    Tema azul oscuro para YouTube con marca "Videos"
+@match          https://www.youtube.com/*
+@match          https://m.youtube.com/*
+==/UserStyle== */
+
+:root {
+  --azul-fondo: #07111f;
+  --azul-panel: #0b192b;
+  --azul-panel-2: #10243b;
+  --azul-borde: #1b3857;
+  --azul-seleccion: #061426;
+  --azul-hover: #102b49;
+  --azul-acento: #4da3ff;
+  --texto: #e5edf7;
+  --texto-secundario: #9fb2c8;
+
+  /* Sustituye esta URL por otra imagen de Tux si lo deseas */
+  --logo-tux: url("https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg");
+}
+
+/* Fondo general */
+html,
+body,
+ytd-app,
+#content,
+#page-manager,
+#columns,
+ytd-browse,
+ytd-search,
+ytd-watch-flexy,
+ytd-watch-grid,
+ytd-rich-grid-renderer {
+  background: var(--azul-fondo) !important;
+  color: var(--texto) !important;
+}
+
+/* Barra superior */
+#masthead-container,
+ytd-masthead,
+#masthead {
+  background: var(--azul-panel) !important;
+  border-bottom: 1px solid var(--azul-borde) !important;
+}
+
+/* Barra lateral y menús */
+ytd-mini-guide-renderer,
+ytd-guide-renderer,
+#guide-content,
+ytd-multi-page-menu-renderer,
+tp-yt-paper-listbox,
+ytd-popup-container,
+ytd-menu-popup-renderer,
+ytd-engagement-panel-section-list-renderer {
+  background: var(--azul-panel) !important;
+  color: var(--texto) !important;
+}
+
+/* Tarjetas, listas y elementos de navegación */
+ytd-rich-item-renderer,
+ytd-video-renderer,
+ytd-grid-video-renderer,
+ytd-compact-video-renderer,
+ytd-playlist-renderer,
+ytd-shelf-renderer,
+ytd-item-section-renderer,
+ytd-comment-thread-renderer,
+ytd-comment-renderer {
+  background: transparent !important;
+  color: var(--texto) !important;
+}
+
+/* Elementos seleccionados y estados activos */
+ytd-guide-entry-renderer[active],
+ytd-guide-entry-renderer:hover,
+ytd-mini-guide-entry-renderer:hover,
+ytd-rich-item-renderer:hover,
+ytd-video-renderer:hover,
+ytd-compact-video-renderer:hover,
+ytd-grid-video-renderer:hover,
+tp-yt-paper-item:hover,
+tp-yt-paper-item[focused],
+yt-chip-cloud-chip-renderer[selected] {
+  background: var(--azul-seleccion) !important;
+}
+
+/* Menús, cuadros de diálogo y listas */
+ytd-searchbox,
+ytd-searchbox #container,
+tp-yt-paper-dialog,
+tp-yt-paper-menu-button,
+ytd-settings-sidebar,
+ytd-settings-page,
+ytd-account-settings {
+  background: var(--azul-panel) !important;
+  color: var(--texto) !important;
+}
+
+/* Campo de búsqueda */
+#search-input,
+ytd-searchbox input {
+  background: #050d18 !important;
+  color: var(--texto) !important;
+  border-color: var(--azul-borde) !important;
+}
+
+#search-icon-legacy,
+ytd-searchbox #search-icon-legacy {
+  background: var(--azul-panel-2) !important;
+  border-color: var(--azul-borde) !important;
+}
+
+/* Botones */
+yt-button-shape button,
+ytd-button-renderer button,
+yt-icon-button button,
+button {
+  color: var(--texto) !important;
+}
+
+yt-button-shape button:hover,
+ytd-button-renderer button:hover,
+yt-icon-button button:hover {
+  background: var(--azul-hover) !important;
+}
+
+/* Texto */
+#video-title,
+.title,
+ytd-video-primary-info-renderer,
+ytd-video-secondary-info-renderer,
+ytd-comment-view-model,
+#description,
+yt-formatted-string {
+  color: var(--texto) !important;
+}
+
+#metadata-line,
+.secondary,
+ytd-video-meta-block,
+#subtitle,
+ytd-channel-name {
+  color: var(--texto-secundario) !important;
+}
+
+/* Enlaces */
+a {
+  color: var(--azul-acento) !important;
+}
+
+/* Barra de progreso */
+.ytp-play-progress {
+  background: var(--azul-acento) !important;
+}
+
+.ytp-load-progress {
+  background: #31587d !important;
+}
+
+/* Selección de texto: azul oscuro casi negro */
+::selection {
+  background: var(--azul-seleccion) !important;
+  color: #d9ebff !important;
+}
+
+::-moz-selection {
+  background: var(--azul-seleccion) !important;
+  color: #d9ebff !important;
+}
+
+/* Oculta el logotipo original */
+ytd-topbar-logo-renderer #logo,
+ytd-topbar-logo-renderer a#logo {
+  width: 82px !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+
+
+/* =========================================================
+   Logo personalizado: Tux + "Videos"
+   ========================================================= */
+
+/* Animación que fuerza la reaplicación del estilo */
+@keyframes videos-forzar-logo {
+  from {
+    opacity: 0.99;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Contenedor principal del logo */
+ytd-topbar-logo-renderer,
+ytd-topbar-logo-renderer #logo,
+ytd-topbar-logo-renderer a#logo,
+ytd-topbar-logo-renderer #logo-container {
+  animation: videos-forzar-logo 0.001s infinite alternate !important;
+}
+
+/* Área del logo */
+ytd-topbar-logo-renderer #logo,
+ytd-topbar-logo-renderer a#logo {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 112px !important;
+  height: 40px !important;
+  overflow: visible !important;
+  background: transparent !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+/* Oculta el contenido original */
+ytd-topbar-logo-renderer #logo > *,
+ytd-topbar-logo-renderer a#logo > *,
+ytd-topbar-logo-renderer #logo svg,
+ytd-topbar-logo-renderer #logo img {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  max-width: 0 !important;
+}
+
+/* Tux */
+ytd-topbar-logo-renderer #logo::before,
+ytd-topbar-logo-renderer a#logo::before {
+  content: "" !important;
+  display: block !important;
+  flex: 0 0 34px !important;
+  width: 34px !important;
+  height: 34px !important;
+  margin-right: 7px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+}
+
+/* Texto nuevo */
+ytd-topbar-logo-renderer #logo::after,
+ytd-topbar-logo-renderer a#logo::after {
+  content: "Videos" !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #e5edf7 !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 40px !important;
+  white-space: nowrap !important;
+}
+
+
+/* Inserta Tux como logo */
+/*
+ytd-topbar-logo-renderer #logo::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 34px !important;
+  height: 34px !important;
+  margin: 2px 7px 0 0 !important;
+  vertical-align: middle !important;
+  background-image: var(--logo-tux) !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+}
+
+*/
+/* Cambia visualmente "YouTube" por "Videos" */
+ytd-topbar-logo-renderer #logo::after {
+  content: "Videos" !important;
+  display: inline-block !important;
+  color: var(--texto) !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  vertical-align: middle !important;
+}
+
+/* Evita mostrar el texto original del logo */
+ytd-topbar-logo-renderer #logo > * {
+  visibility: hidden !important;
+}
+
+ytd-topbar-logo-renderer #logo::before,
+ytd-topbar-logo-renderer #logo::after {
+  visibility: visible !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--azul-fondo);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #173453;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #24527e;
+}
+
